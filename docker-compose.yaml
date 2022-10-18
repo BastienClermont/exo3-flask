@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  app-flask:
+    image: bbonnefoy/exo3flaskapp:1.0.0
+    container_name: app-flask
+    restart: always
+    ports:
+      - 8080:5000
+  mariadb:
+    image: mariadb:10.9
+    container_name: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: juve
+      MARIADB_USER: delpiero
+      MARIADB_PASSWORD: juve
+    volumes:
+      - ~/dbdata:/var/lib/mysql
+
